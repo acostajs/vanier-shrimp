@@ -1,0 +1,43 @@
+{% extends "base.jinja" %}
+{% block title %}{{ story.title }}{% endblock %}
+
+{% block content %}
+    <article class="story">
+        <h1 class="story-title">
+            <a class="story-link" href="{{ story.link }}">{{ story.title }}</a>
+        </h1>
+        <p class="story-description">{{ story.description }}</p>
+
+        <p><em>Posted by {{ story.username }} - ({{ story.date_posted|time_ago }})</em></p>
+    </article>
+
+    <section class="comment-section">
+        <h2>Comments</h2>
+
+        {% if comments %}
+            {% for comment in comments %}
+                <div class="comment">
+                    <strong>{{ comment.username }} - ({{ comment.date_posted|time_ago }})</strong> 
+                    <p>{{ comment.body }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No comments yet.</p>
+        {% endif %}
+    </section>
+
+    <section class="comment-form">
+        <h3>Leave a Comment</h3>
+        <form method="POST" action="{{ url_for('stories.submit_comment', story_id=story.id) }}">
+            <label for="body">
+                Comment
+                <textarea name="body" rows="4">{{ form.body }}</textarea>
+            </label>
+            {% if form.field_errors.body %}
+                <div class="error">{{ form.field_errors.body }}</div>
+            {% endif %}
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+{% endblock %}

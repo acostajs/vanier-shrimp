@@ -1,0 +1,74 @@
+{
+	"meta": {
+		"title": "Shrimp – Social News Website",
+		"role": "Backend Developer",
+		"type": "Academic project",
+		"audience": ["Instructors", "Students"],
+		"status": "Completed"
+	},
+
+	"overview": {
+		"summary": "A Flask-based social news website inspired by platforms like Hacker News, allowing users to submit stories, comment on posts, and interact through authenticated accounts.",
+		"problem": "Social news platforms require structured content submission, user interaction, and moderation through authentication and validation.",
+		"solution": "A server-rendered Flask application with story submission, commenting, user accounts, and database-backed persistence."
+	},
+
+	"responsibilities": [
+		"Designed and implemented the Flask application structure",
+		"Created database models for users, stories, and comments",
+		"Implemented story submission and commenting features",
+		"Built user registration, login, and logout flows",
+		"Handled form validation and error messaging",
+		"Integrated flash messages and session-based authentication"
+	],
+
+	"tech_stack": [
+		"Python",
+		"Flask",
+		"Jinja",
+		"SQLAlchemy",
+		"SQLite",
+		"uv"
+	],
+
+	"architecture": {
+		"approach": "Monolithic Flask application using server-rendered templates, with clear separation between accounts, stories, templates, and database models.",
+		"data_flow": "User actions are handled by Flask routes, persisted via SQLAlchemy models, and rendered back to the client using Jinja templates.",
+		"deployment": "Not deployed. The application is intended to run locally for development and evaluation."
+	},
+
+	"key_features": [
+		"Story submission with titles, links, and descriptions",
+		"Commenting system per story",
+		"User registration and authentication",
+		"Flash messages for user actions",
+		"Human-readable timestamps"
+	],
+
+	"challenges_and_learnings": [
+		"Designing relational data models for stories and comments",
+		"Implementing authentication and access control",
+		"Handling form validation and user feedback",
+		"Structuring a multi-feature Flask application"
+	],
+
+	"skills_demonstrated": [
+		"Backend web development",
+		"Flask application architecture",
+		"Relational data modeling",
+		"Authentication workflows",
+		"Server-rendered web applications"
+	],
+
+	"future_improvements": [
+		"Add pagination for stories and comments",
+		"Improve moderation and reporting tools",
+		"Enhance UI and accessibility",
+		"Introduce voting or ranking mechanisms"
+	],
+
+	"links": {
+		"live_demo": "",
+		"source_code": "https://github.com/acostajs/vanier-shrimp"
+	}
+}

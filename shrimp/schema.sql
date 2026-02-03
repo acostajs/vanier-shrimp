@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS Accounts (
+    id INTEGER PRIMARY KEY,
+    email TEXT NOT NULL UNIQUE,
+    username TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Stories (
+    id INTEGER PRIMARY KEY,
+    title VARCHAR(80) NOT NULL,
+    link TEXT NOT NULL UNIQUE,
+    description VARCHAR(10,000),
+    date_posted DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    account_id INTEGER NOT NULL,
+    FOREIGN KEY (account_id) REFERENCES Accounts(id)
+);
+
+CREATE TABLE IF NOT EXISTS comment (
+    id INTEGER PRIMARY KEY,
+    body VARCHAR(10,000) NOT NULL,
+    date_posted DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    story_id INTEGER NOT NULL,
+    account_id INTEGER NOT NULL,
+    FOREIGN KEY (story_id) REFERENCES Stories(id),  
+    FOREIGN KEY (account_id) REFERENCES Accounts(id) 
+);
+
+

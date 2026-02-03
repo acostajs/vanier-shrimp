@@ -1,0 +1,22 @@
+[project]
+name = "shrimp"
+version = "0.1.0"
+description = "User News Website"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "flask>=3.1.1",
+    "ruff>=0.12.7",
+]
+
+[project.optional-dependencies]
+dev = ["ruff", "pyright"]
+
+[tool.ruff.lint]
+select = ["ANN", "ARG", "N", "E", "PLW0603", "SIM", "B", "F"]
+ignore = ["ANN204"]
+exclude = ["routes.py", "__init__.py"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"

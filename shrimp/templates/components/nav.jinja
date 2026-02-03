@@ -1,0 +1,15 @@
+<nav>
+    <div>
+        <a href="{{ url_for('stories.index') }}">Home</a>
+        <a href="{{ url_for('stories.create') }}">Submit a Story</a>
+    </div>
+    <div>
+        {% if session["account_id"] %}
+            <a href="{{ url_for('accounts.logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('accounts.create') }}">Register</a>
+            <a href="{{ url_for('accounts.login') }}">Login</a>
+        {% endif %}
+    </div>
+    
+</nav>

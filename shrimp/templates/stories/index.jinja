@@ -1,0 +1,35 @@
+{% extends "base.jinja" %}
+{% block title %}Shrimp — All stories{% endblock %}
+
+{% block content %}
+    <h1>Recent Stories</h1>
+
+    <table class="story-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Posted By</th>
+                <th>Link to Story</th>
+                <th>Date posted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for story in stories %}
+                <tr>
+                    <td>
+                        <a class="story-link" href="{{ url_for('stories.story_show', story_id=story.id) }}">
+                            {{ story.title }}
+                        </a>
+                    </td>
+                    <td>{{ story.username }}</td>
+                    <td>
+                        <a class="story-link" href="{{ story.link }}">
+                        {{ story.link }} 
+                        </a>
+                    </td>    
+                    <td>{{ story.date_posted|time_ago }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
